@@ -1,19 +1,49 @@
-import React from 'react'
-import Header from '@/components/common/Header'
+import React from "react";
+import Header from "@/components/common/Header";
+import Footer from "@/components/common/Footer";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Slash } from "lucide-react";
 export default async function page() {
   return (
-   <>
-   <Header/>
-   <div className='container px-auto'>
-    <div className='grid grid-cols-2 px-4'>
-        <div>
-            <span><h1>Tabs section</h1> </span>
+    <>
+      <section>
+        <Header />
+      </section>
+      <section>
+        <div className=" w-full bg-[#f4e4c9] py-4">
+          <div className="max-w-screen-xl mx-auto">
+            <h1 className="text-3xl font-bold mb-4 text-[#a58255] ">Contact</h1>
+            <div>
+              <Breadcrumb>
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator>
+                    <Slash />
+                  </BreadcrumbSeparator>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink href="/contact">Contact</BreadcrumbLink>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+              </Breadcrumb>
+            </div>
+          </div>
         </div>
-        <div> <span> <h2> Form section</h2></span></div>
-    </div>
-   </div>
-   </>
-  )
+      </section>
+      <section>
+        {/* content? */}
+      </section>
+      <section>
+        <Footer/>
+      </section>
+    </>
+  );
 }
-
- 

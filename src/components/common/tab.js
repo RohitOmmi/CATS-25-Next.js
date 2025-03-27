@@ -8,7 +8,7 @@ export default function Tab({ service }) {
   return (
     <>
       <div
-        className="p-4 border rounded-lg shadow-md cursor-pointer hover:bg-gray-100"
+        className=" w-full gap-4 items-center justify-center my-5 border border-black "
         onClick={() => router.push("/news")}
       >
         <h2 className="text-xl font-bold">All News</h2>
@@ -16,7 +16,7 @@ export default function Tab({ service }) {
 
       {service.map((each, index) => (
         <div
-          className="p-4 border rounded-lg shadow-md cursor-pointer hover:bg-gray-100"
+          className="flex flex-col w-full gap-4 items-center justify-center my-5 border border-black "
           onClick={() => router.push(`/news/${each.slug}`)}
           key={index}
         >

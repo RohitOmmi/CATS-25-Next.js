@@ -33,7 +33,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="flex items-center justify-between  py-3  ">
+    <header className="max-w-screen-xl mx-auto flex items-center justify-between  py-3  ">
       {/* Logo */}
       <Link href="/">
         <Image

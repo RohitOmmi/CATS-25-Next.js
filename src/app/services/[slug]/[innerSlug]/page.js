@@ -37,88 +37,109 @@ export default async function ServiceInnerDetailPage({ params }) {
   // console.log(service.services_data, "Service DATA");
 
   if (!service) return <div>Service not found</div>;
-   const firstTab = service.l3menu_data[0]?.sub_cat_name || "";
+  const firstTab = service.l3menu_data[0]?.sub_cat_name || "";
   return (
-    <div className="max-w-screen-xl mx-auto">
-      <Header />
-      <div className="bg-[#f4e4c9]">
-        <div className="max-w-screen-xl mx-auto">
-          <h1 className="text-3xl font-bold mb-4 text-[#a58255]">
-            {titleSlug2}
-          </h1>
-          {/* Bread crumb component */}
-          <div>
-            <Breadcrumb>
-              <BreadcrumbList>
-                <BreadcrumbItem>
-                  <BreadcrumbLink href="/">Home</BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator>
-                  <Slash />
-                </BreadcrumbSeparator>
-                <BreadcrumbItem>
-                  <BreadcrumbLink href="/services">Services</BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator>
-                  <Slash />
-                </BreadcrumbSeparator>
-                <BreadcrumbItem>
-                  <BreadcrumbLink
-                    href={`/services/${slug}`}
-                    className="capitalize"
-                  >
-                    {titleSlug}
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator>
-                  <Slash />
-                </BreadcrumbSeparator>
-                <BreadcrumbItem>
-                  <BreadcrumbLink
-                    href={`/services/${slug}/${innerSlug}`}
-                    className="capitalize"
-                  >
-                    {titleSlug2}
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
+    <>
+      <section>
+        <Header />
+      </section>
+
+      <section>
+        <div className="w-full bg-[#f4e4c9] py-4">
+          <div className="max-w-screen-xl mx-auto">
+            <h1 className="text-3xl font-bold mb-4 text-[#a58255]">
+              {titleSlug2}
+            </h1>
+            {/* Bread crumb component */}
+            <div>
+              <Breadcrumb>
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator>
+                    <Slash />
+                  </BreadcrumbSeparator>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink href="/services">Services</BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator>
+                    <Slash />
+                  </BreadcrumbSeparator>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink
+                      href={`/services/${slug}`}
+                      className="capitalize"
+                    >
+                      {titleSlug}
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator>
+                    <Slash />
+                  </BreadcrumbSeparator>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink
+                      href={`/services/${slug}/${innerSlug}`}
+                      className="capitalize"
+                    >
+                      {titleSlug2}
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+              </Breadcrumb>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="container mx-auto p-4">
-        {/* <h1 className="text-3xl font-bold mb-4">Our Services Inner slug</h1> */}
-        
-          <div >
-            <div >
+      </section>
+
+      <section>
+        <div className="max-w-screen-xl mx-auto p-4">
+          {/* <h1 className="text-3xl font-bold mb-4">Our Services Inner slug</h1> */}
+
+          <div>
+            <div>
               {/* <div className="p-4 border rounded-lg shadow-md cursor-pointer hover:bg-gray-100">
                 <h2 className="text-xl font-bold">{innerData.sub_cat_name}</h2>
               </div> */}
             </div>
-            <div >
-              <Tabs   defaultValue={firstTab} className="flex h-screen">
-                <TabsList>
-                {service.l3menu_data.map((innerData, index) => (
-                  <TabsTrigger key={index}  value={innerData.sub_cat_name} className="mx-2"><h1 className="text-xl font-bold">{innerData.sub_cat_name}</h1></TabsTrigger>
-                ))}
+            <div>
+              <Tabs defaultValue={firstTab} className="flex  gap-2">
+                <TabsList >
+                  {service.l3menu_data.map((innerData, index) => (
+                    <TabsTrigger
+                      key={index}
+                      value={innerData.sub_cat_name}
+                      className=" text-center p-2 border border-gray-300 "
+                    >
+                      <h1 className="text-xl font-bold">
+                        {innerData.sub_cat_name}
+                      </h1>
+                    </TabsTrigger>
+                  ))}
                 </TabsList>
-                    
-                {service.services_data.map((serviceData, index) => (     
-                <TabsContent key={index}  value={serviceData.sub_cat_name} >
-                  <div>
-                    <h2 className="text-xl font-semibold text-[#007367]">{serviceData.sub_cat_name}</h2>
-                    <div dangerouslySetInnerHTML={{__html:serviceData.description}} />
-                      
-                   
-                  </div>
-                </TabsContent>
-                 ))}
-                
+                <div className="overflow-y-auto">
+                {service.services_data.map((serviceData, index) => (
+                  
+                  <TabsContent key={index} value={serviceData.sub_cat_name} >
+                    <div>
+                      <h2 className="text-xl font-semibold text-[#007367]">
+                        {serviceData.sub_cat_name}
+                      </h2>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: serviceData.description,
+                        }}
+                      />
+                    </div>
+                  </TabsContent>
+                  
+                ))}
+                </div>
               </Tabs>
             </div>
           </div>
-    
-      </div>
-    </div>
+        </div>
+      </section>
+    </>
   );
 }

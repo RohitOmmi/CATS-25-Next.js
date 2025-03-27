@@ -16,7 +16,7 @@ export default function ServiceCard({ service }) {
   const Imgpath="https://guprojects.gitam.edu/catscms2/public/services/"
   return (
     <div
-      className="p-[12px] m-[25px] flex flex-col items-center border text-center bg-[#f4e4c9]  border-[#a58255]"
+      className="p-[12px] m-[18px] flex flex-col items-center border text-center bg-[#f4e4c9]  border-[#a58255]"
       onClick={() => router.push(route)}
     >
       {service.main_category_name?(<img src={`${Imgpath}${service.main_category_image || service.cat_image}`} className="w-[113px] h-[90px]"/>):"no media"}
