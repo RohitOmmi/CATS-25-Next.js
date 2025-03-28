@@ -11,21 +11,21 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Slash } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import PaginationComponent from "@/components/PaginationComponent";
+// import {
+//   Pagination,
+//   PaginationContent,
+//   PaginationEllipsis,
+//   PaginationItem,
+//   PaginationLink,
+//   PaginationNext,
+//   PaginationPrevious,
+// } from "@/components/ui/pagination";
 
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
-
-const EVENTS_PER_PAGE = 2;
-export default async function ServicePage({ Params }) {
+const EVENTS_PER_PAGE = 3;
+export default async function ServicePage({ searchParams }) {
   const events = await getEvents(); // Fetch data on the server
-  const currentPage = Number(Params?.page) || 1;
+  const currentPage = Number(searchParams?.page) || 1;
 
   const totalPages = Math.ceil(events.length / EVENTS_PER_PAGE);
 
@@ -129,10 +129,14 @@ export default async function ServicePage({ Params }) {
                   })}
                 </TabsContent>
               </div>
+                
             </Tabs>
+            <div className="shrink-0 py-4">
+                  <PaginationComponent totalPages={totalPages} />
+                </div>
           </div>
           {/* Pagination */}
-          <div className="shrink-0 py-4" >
+          {/* <div className="shrink-0 py-4" >
             <Pagination>
               <PaginationContent className="flex justify-center space-x-2">
                 {currentPage > 1 && (
@@ -165,7 +169,7 @@ export default async function ServicePage({ Params }) {
                 )}
               </PaginationContent>
             </Pagination>
-          </div>
+          </div> */}
         </div>
       </section>
 

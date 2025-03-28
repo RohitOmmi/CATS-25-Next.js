@@ -104,7 +104,7 @@ export default async function ServiceInnerDetailPage({ params }) {
             </div>
             <div>
               <Tabs defaultValue={firstTab} className="flex  gap-2">
-                <TabsList >
+                <TabsList className="shrink-0" >
                   {service.l3menu_data.map((innerData, index) => (
                     <TabsTrigger
                       key={index}
@@ -117,7 +117,7 @@ export default async function ServiceInnerDetailPage({ params }) {
                     </TabsTrigger>
                   ))}
                 </TabsList>
-                <div className="overflow-y-auto">
+                <div className=" h-[calc(100vh-300px)] overflow-y-auto">
                 {service.services_data.map((serviceData, index) => (
                   
                   <TabsContent key={index} value={serviceData.sub_cat_name} >

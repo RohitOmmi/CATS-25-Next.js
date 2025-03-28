@@ -30,13 +30,13 @@ export default async function ServicePage() {
               <Breadcrumb>
                 <BreadcrumbList>
                   <BreadcrumbItem>
-                    <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                    <BreadcrumbLink href="/" className={pathname === "/services" ? "text-[#a58255] font-bold" : ""}>Home</BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbSeparator>
                     <Slash />
                   </BreadcrumbSeparator>
                   <BreadcrumbItem>
-                    <BreadcrumbLink href="/services">Services</BreadcrumbLink>
+                    <BreadcrumbLink href="/services" className={pathname === "/services" ? "text-[#a58255] font-bold" : ""}>Services</BreadcrumbLink>
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>

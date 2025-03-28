@@ -62,11 +62,11 @@ export default function CarouselComponent() {
                   {/* search i?nput */}
                   <div className=" absolute top-10 left-[20%]  w-[60%] ">
                     <div className="flex flex-row gap-2 items-center">
-                      <div className="flex-grow ">
+                      <div className="flex-grow mb-4">
                        <Search className="w-full max-w-[700px] px-3 py-2"/>
                       </div>
-                      <div className=" border-l-2 border-white pl-3 mt-10">
-                        <a href="#" target="_blank"><h1 className="text-2xl text-white whitespace-nowrap"> Bell the CATS</h1></a>
+                      <div className=" border-l-2 border-white pl-3 mt-8">
+                        <a href="/bellCats" target="_blank"><h1 className="text-xl text-white whitespace-nowrap "> Bell the CATS</h1></a>
                       </div>
                     </div>
                    
@@ -79,7 +79,7 @@ export default function CarouselComponent() {
                       <h1
                         className="text-xl font-semibold bg-white w-[18.33%] px-3 py-2 "
 
-                        // style={{ color: colors[index] }}
+                        // style={{ mixBlendMode: "difference" }} 
                       >
                         {slide.label}
                       </h1>
