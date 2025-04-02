@@ -9,6 +9,7 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs";
 import PaginationComponent from "@/components/PaginationComponent";
+import { ChevronRight } from "lucide-react";
 
 const NEWS_PER_PAGE = 3;
 
@@ -83,7 +84,10 @@ useEffect(() => {
         {/* ✅ Tab List */}
         <TabsList className="shrink-0">
           <TabsTrigger value="All News" className="font-bold w-full">
-            <h1 className="font-semibold text-xl">All News</h1>
+          <div className="flex flex-row items-center justify-between" >
+            <h1 className=" text-xl font-inter">All News</h1>
+            <ChevronRight className="w-3 h-3 text-black" />
+            </div>
           </TabsTrigger>
           {newsCategories.map((category, index) => (
             <TabsTrigger
@@ -91,7 +95,11 @@ useEffect(() => {
               value={category.main_category_name}
               className="font-bold w-full"
             >
-              <h1 className="text-xl font-semibold">{category.main_category_name}</h1>
+              <div className="flex flex-row items-center justify-between" >
+              <h1 className="text-xl  text-left font-inter">{category.main_category_name}</h1>
+              <ChevronRight className="w-3 h-3 text-black" />
+              </div>
+             
             </TabsTrigger>
           ))}
         </TabsList>
@@ -104,30 +112,30 @@ useEffect(() => {
             ) : (
             paginatedNews.map((newsItem, index) => {
               const words = newsItem.full_description.split(" ");
-              const shortText = words.slice(0, 40).join(" ");
+              const shortText = words.slice(0, 20).join(" ");
               const isLong = words.length > 100;
 
               return (
                 <div key={index} className="w-full border border-gray-400 shadow-sm p-4 my-2">
                   <div className="flex flex-row items-center justify-between mx-2">
-                    <div className="bg-[#f4e4c9] rounded-md px-1">
+                    <div className="bg-[#f4e4c9] rounded-md px-1 font-inter">
                       <small>{newsItem.l2_catname}</small>
                     </div>
-                    <div className="bg-[#f4e4c9] rounded-md px-1">
+                    <div className="bg-[#f4e4c9] rounded-md px-1 font-inter">
                       <small>{newsItem.news_date}</small>
                     </div>
                   </div>
-                  <h2 className="text-xl font-medium text-[#a58255]">
+                  <h2 className="text-xl font-medium text-[#a58255] font-inter">
                     {newsItem.news_title}
                   </h2>
                   <p
-                    className="text-[18px] text-black"
+                    className="text-[18px] text-black font-inter"
                     dangerouslySetInnerHTML={{
                       __html: isLong ? shortText : newsItem.full_description,
                     }}
                   />
                   {isLong && (
-                    <a href="#" className="text-gray-500 mt-2 block">
+                    <a href="#" className="text-gray-500 mt-2 block font-inter">
                       <h3>Read More →</h3>
                     </a>
                   )}

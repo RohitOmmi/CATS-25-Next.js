@@ -17,42 +17,44 @@ export default async function ServicePage() {
 
   return (
     <>
-      <section>
-        <Header />
-      </section>
-      <section>
-        <div className=" w-full bg-[#f4e4c9] py-4">
-          <div className="max-w-screen-xl mx-auto">
-            <h1 className="text-3xl font-bold mb-4 text-[#a58255] ">
-              Services
-            </h1>
-            <div>
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink href="/" className={pathname === "/services" ? "text-[#a58255] font-bold" : ""}>Home</BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator>
-                    <Slash />
-                  </BreadcrumbSeparator>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink href="/services" className={pathname === "/services" ? "text-[#a58255] font-bold" : ""}>Services</BreadcrumbLink>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
+      
+        <section>
+          <Header />
+        </section>
+        <section>
+          <div className=" w-full bg-[#f4e4c9] py-4">
+            <div className="max-w-screen-xl mx-auto">
+              <h1 className="text-3xl font-bold mb-4 text-[#a58255] ">
+                Services
+              </h1>
+              <div>
+                <Breadcrumb>
+                  <BreadcrumbList>
+                    <BreadcrumbItem>
+                      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator>
+                      <Slash />
+                    </BreadcrumbSeparator>
+                    <BreadcrumbItem>
+                      <BreadcrumbLink href="/services">Services</BreadcrumbLink>
+                    </BreadcrumbItem>
+                  </BreadcrumbList>
+                </Breadcrumb>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <section>
-        <div className="max-w-screen-xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {services.map((service) => (
-              <ServiceCard key={service.id} service={service} />
-            ))}
+        </section>
+        <section> 
+          <div className="max-w-screen-xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {services.map((service) => (
+                <ServiceCard key={service.id} service={service} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+          </section> 
+     
     </>
   );
 }

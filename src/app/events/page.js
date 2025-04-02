@@ -1,6 +1,8 @@
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import { getEvents } from "@/lib/getEvents";
+import { ChevronRight } from "lucide-react";
+import { SlCalender } from "react-icons/sl";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -44,18 +46,18 @@ export default async function ServicePage({ searchParams }) {
       <section>
         <div className="w-full bg-[#f4e4c9] py-4">
           <div className="max-w-screen-xl mx-auto">
-            <h1 className="text-3xl font-bold mb-4 text-[#a58255]">Events</h1>
+            <h1 className="text-3xl font-bold mb-4 text-[#a58255] font-inter">Events</h1>
             <div>
               <Breadcrumb>
                 <BreadcrumbList>
                   <BreadcrumbItem>
-                    <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                    <BreadcrumbLink href="/" className="font-inter">Home</BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbSeparator>
                     <Slash />
                   </BreadcrumbSeparator>
                   <BreadcrumbItem>
-                    <BreadcrumbLink href="/events">Events</BreadcrumbLink>
+                    <BreadcrumbLink href="/events" className="font-inter" >Events</BreadcrumbLink>
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
@@ -73,7 +75,11 @@ export default async function ServicePage({ searchParams }) {
                   value="all events"
                   className="py-2 px-4 font-bold w-full"
                 >
-                  <h1 className="text-xl font-bold">All Events</h1>
+                  <div className="flex flex-row  items-center justify-between">
+               <h1 className="text-xl font-semibold text-left font-inter">All Events</h1>
+               <ChevronRight className="w-3 h-3 text-black" />
+                </div>
+               
                 </TabsTrigger>
               </TabsList>
               <div className="  h-[calc(100vh-300px)] overflow-y-auto">
@@ -102,11 +108,15 @@ export default async function ServicePage({ searchParams }) {
                     return (
                       <div
                         key={index}
-                        className="mb-4 p-4 border rounded-lg shadow-md"
+                        className="mb-4 p-4 border  shadow-md"
                       >
-                        <h2 className="text-xl font-bold text-[#a58255]">
+                        <div>
+                        <h2 className="text-xl font-bold text-[#a58255] font-inter">
                           {event.event_name}
                         </h2>
+                        <strong></strong>
+                        </div>
+                        
                         <div className="my-2">
                           <p
                             dangerouslySetInnerHTML={{
@@ -118,11 +128,17 @@ export default async function ServicePage({ searchParams }) {
                           {isLong && (
                             <a
                               href={events?.readmore_link}
-                              className="text-gray-500  mt-2 block"
+                              className="text-gray-500  font-inter mt-2 block"
                             >
                               <h3>Read More →</h3>
                             </a>
                           )}
+                        </div>
+                        <div className="flex flex-row items-center justify-between">
+                          <div className="flex items-start  gap-1">
+                            <strong><SlCalender /></strong>
+                            <span className="font-inter">{event.start_date}</span>
+                          </div>
                         </div>
                       </div>
                     );
@@ -135,41 +151,7 @@ export default async function ServicePage({ searchParams }) {
                   <PaginationComponent totalPages={totalPages} />
                 </div>
           </div>
-          {/* Pagination */}
-          {/* <div className="shrink-0 py-4" >
-            <Pagination>
-              <PaginationContent className="flex justify-center space-x-2">
-                {currentPage > 1 && (
-                  <PaginationItem>
-                    <PaginationPrevious
-                      href={`/events?page=${currentPage - 1}`}
-                    />
-                  </PaginationItem>
-                )}
-
-                {[...Array(totalPages)].map((_, pageIndex) => (
-                  <PaginationItem key={pageIndex}>
-                    <PaginationLink
-                      href={`/events?page=${pageIndex + 1}`}
-                      className={
-                        pageIndex + 1 === currentPage
-                          ? "font-bold text-blue-500"
-                          : ""
-                      }
-                    >
-                      {pageIndex + 1}
-                    </PaginationLink>
-                  </PaginationItem>
-                ))}
-
-                {currentPage < totalPages && (
-                  <PaginationItem>
-                    <PaginationNext href={`/events?page=${currentPage + 1}`} />
-                  </PaginationItem>
-                )}
-              </PaginationContent>
-            </Pagination>
-          </div> */}
+          
         </div>
       </section>
 

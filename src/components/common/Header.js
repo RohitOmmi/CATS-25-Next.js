@@ -55,9 +55,9 @@ export default function Header() {
               <NavigationMenuItem key={path}>
                 <Link href={path} passHref legacyBehavior>
                   <NavigationMenuLink
-                    className={`${navigationMenuTriggerStyle()} text-base ${
+                    className={`${navigationMenuTriggerStyle()} text-base  font-inter ${
                       isActive
-                        ? "text-[#007367] font-semibold"
+                        ? "text-[#007367] "
                         : "text-[#212529]"
                     }`}
                   >
@@ -87,7 +87,7 @@ export default function Header() {
                       className="py-0 hover:background"
                     >
                       <NavigationMenuLink
-                        className={`${navigationMenuTriggerStyle()} py-0`}
+                        className={`${navigationMenuTriggerStyle()} py-0 font-inter`}
                         target="_blank" // ✅ Move target here
                         rel="noopener noreferrer" // ✅ Security best practice
                       >

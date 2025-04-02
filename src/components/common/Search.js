@@ -25,16 +25,16 @@ export default function Search() {
   return (
     <div className="relative w-full    mx-auto">
       {/* Search Input */}
-      <div className="relative w-full max-w-lg">
+      <div className=" w-full">
       <input
         type="text"
         placeholder="Search by Service, Project Name, Topic, or Keyword"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="w-full p-3 absolute border  border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-white"
+        className=" w-full p-3 absolute border  border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-white"
         
       />
-      <IoSearchSharp  className="absolute right-4  transform translate-y-1/2 text-black text-xl mt-1"/>
+      <IoSearchSharp className="absolute top-4 right-[5%] w-[20px] h-[20px]" />
       </div>
       {/* Loading Indicator */}
       {loading && <p className="mt-2 text-sm text-gray-500">Loading...</p>}

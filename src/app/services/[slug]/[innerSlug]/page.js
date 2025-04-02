@@ -1,5 +1,5 @@
 import Header from "@/components/common/Header";
-import ServiceCard from "@/components/common/ServiceCard";
+import { ChevronRight } from "lucide-react";
 import { getInnerServiceById } from "@/lib/getInnerServiceById";
 import {
   Breadcrumb,
@@ -97,11 +97,7 @@ export default async function ServiceInnerDetailPage({ params }) {
           {/* <h1 className="text-3xl font-bold mb-4">Our Services Inner slug</h1> */}
 
           <div>
-            <div>
-              {/* <div className="p-4 border rounded-lg shadow-md cursor-pointer hover:bg-gray-100">
-                <h2 className="text-xl font-bold">{innerData.sub_cat_name}</h2>
-              </div> */}
-            </div>
+          
             <div>
               <Tabs defaultValue={firstTab} className="flex  gap-2">
                 <TabsList className="shrink-0" >
@@ -111,9 +107,13 @@ export default async function ServiceInnerDetailPage({ params }) {
                       value={innerData.sub_cat_name}
                       className=" text-center p-2 border border-gray-300 "
                     >
-                      <h1 className="text-xl font-bold">
+                       <div className="flex flex-row  items-center justify-between">
+                       <h1 className="text-xl font-semibold">
                         {innerData.sub_cat_name}
                       </h1>
+                      <ChevronRight className="w-3 h-3 text-black" />
+                       </div>
+                      
                     </TabsTrigger>
                   ))}
                 </TabsList>

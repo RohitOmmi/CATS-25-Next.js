@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/carousel";
 import { getHomeSlider } from "@/lib/getHomeSlider";
 import { Button } from "./ui/button";
-import Search from "./common/Search";
+
 // import linesImg from "../../public/assets/images/lines.png";
 
 const colors = ["bg-[#007367]", "bg-[#428bc1]", "bg-[#f28f8f]", "bg-[#a58255]"];
@@ -60,7 +60,7 @@ export default function CarouselComponent() {
                 
                 <div className="max-w-screen-xl w-full h-full  flex flex-col justify-center   relative">
                   {/* search i?nput */}
-                  <div className=" absolute top-10 left-[20%]  w-[60%] ">
+                  {/* <div className=" absolute top-10 left-[20%]  w-[60%] ">
                     <div className="flex flex-row gap-2 items-center">
                       <div className="flex-grow mb-4">
                        <Search className="w-full max-w-[700px] px-3 py-2"/>
@@ -70,7 +70,7 @@ export default function CarouselComponent() {
                       </div>
                     </div>
                    
-                  </div>
+                  </div> */}
 
                   <Card
                     className={`h-[50vh] w-full  ${colors[index]}  border-none`}
