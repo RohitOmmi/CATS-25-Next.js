@@ -27,17 +27,17 @@ export default function Home() {
   // console.log(slides);
   return (
     <div className="w-full">
-      <div className="max-w-screen-xl mx-auto h-[80px] relative">
+      <div className="max-w-screen-xl mx-auto  ">
         <Header />
       </div>
-      <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[70%] lg:w-[60%]  z-30">
-        <div className="flex flex-col md:flex-row gap-2 items-center justify-center bg-opacity-80 p-3 rounded-md">
+      <div className="absolute top-50 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[70%] lg:w-[60%]   z-30">
+        <div className="flex flex-col md:flex-row gap-5 items-center justify-center bg-opacity-80 pt-8 rounded-md ">
           <div className="w-full md:flex-grow mb-4">
             <Search className="w-full max-w-[700px] px-3 py-2 bg-white rounded-md shadow-lg" />
           </div>
-          <div className="border-l-2 border-white pl-3 mt-8">
+          <div className="border-l-2 border-white pl-[15px] mt-8">
             <a href="/bellCats" target="_blank">
-              <h1 className="text-xl text-white whitespace-nowrap">
+              <h1 className="text-xl text-white whitespace-nowrap font-[400] font-inter">
                 Bell the CATS
               </h1>
             </a>

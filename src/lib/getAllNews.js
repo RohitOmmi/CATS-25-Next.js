@@ -7,7 +7,7 @@ export async function getAllNews() {
       headers: apiHeaders,
     });
 
-    console.log(response)
+    // console.log(response)
 
     if (!response.ok) {
       throw new Error("Failed to fetch data");

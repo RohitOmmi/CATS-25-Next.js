@@ -10,6 +10,8 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Slash } from "lucide-react";
+import Footer from "@/components/common/Footer";
+
 export default async function ServiceDetailPage({ params }) {
   // const router = useRouter();
   // Convert params to a resolved promise
@@ -41,20 +43,20 @@ export default async function ServiceDetailPage({ params }) {
       <section>
         <div className=" w-full bg-[#f4e4c9] py-4">
           <div className="max-w-screen-xl mx-auto">
-            <h1 className="text-3xl font-bold mb-4 text-[#a58255]">
+            <h1 className="text-2xl font-inter font-medium mb-4 text-[#a58255]">
               {titleSlug}
             </h1>
             <div>
               <Breadcrumb>
                 <BreadcrumbList>
                   <BreadcrumbItem>
-                    <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                    <BreadcrumbLink href="/" className=" text-[#a58255] font-inter">Home</BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbSeparator>
                     <Slash />
                   </BreadcrumbSeparator>
                   <BreadcrumbItem>
-                    <BreadcrumbLink href="/services">Services</BreadcrumbLink>
+                    <BreadcrumbLink href="/services" className="text-[#a58255] fon-inter">Services</BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbSeparator>
                     <Slash />
@@ -63,7 +65,7 @@ export default async function ServiceDetailPage({ params }) {
                   <BreadcrumbItem>
                     <BreadcrumbLink
                       href={`/services/${slug}`}
-                      className="capitalize"
+                      className="capitalize text-[#007367] font-inter"
                     >
                       {titleSlug}
                     </BreadcrumbLink>
@@ -76,13 +78,16 @@ export default async function ServiceDetailPage({ params }) {
       </section>
       
       <section>
-        <div className="max-w-screen-xl mx-auto p-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="max-w-screen-xl mx-auto  my-4 ">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 cursor-pointer ">
             {service.map((service) => (
               <ServiceCard key={service.id} service={service} />
             ))}
           </div>
         </div>
+      </section>
+      <section>
+            <Footer/>
       </section>
     </>
   );

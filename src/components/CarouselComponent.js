@@ -15,6 +15,7 @@ import { Button } from "./ui/button";
 // import linesImg from "../../public/assets/images/lines.png";
 
 const colors = ["bg-[#007367]", "bg-[#428bc1]", "bg-[#f28f8f]", "bg-[#a58255]"];
+const textColor = ["#007367", "#428bc1", "#f28f8f", "#a58255"];
 const backgroundColors = [
   "bg-[#79ccc2]",
   "bg-[#69abe1]",
@@ -42,61 +43,49 @@ export default function CarouselComponent() {
   }, []);
 
   return (
-    <div className="w-screen h-[90vh] flex justify-center">
+    <div className="w-screen h-full flex justify-center">
       <Carousel className="w-full  ">
         <CarouselContent className="h-full">
           {slides.length > 0 ? (
             slides.map((slide, index) => (
               <CarouselItem
                 key={index}
-                className={`min-h-[90vh]  flex justify-center ${backgroundColors[index]} relative`}
+                className={`min-h-[100vh]  flex justify-center ${backgroundColors[index]} relative`}
               >
-                {/* <Search/> */}
+            
                 <img
                   src={linesImg}
                   alt="lines"
                   className="w-[210px] h-[200px] left-0 absolute "
                 />
                 
-                <div className="max-w-screen-xl w-full h-full  flex flex-col justify-center   relative">
-                  {/* search i?nput */}
-                  {/* <div className=" absolute top-10 left-[20%]  w-[60%] ">
-                    <div className="flex flex-row gap-2 items-center">
-                      <div className="flex-grow mb-4">
-                       <Search className="w-full max-w-[700px] px-3 py-2"/>
-                      </div>
-                      <div className=" border-l-2 border-white pl-3 mt-8">
-                        <a href="/bellCats" target="_blank"><h1 className="text-xl text-white whitespace-nowrap "> Bell the CATS</h1></a>
-                      </div>
-                    </div>
-                   
-                  </div> */}
+                <div className="max-w-screen-xl w-full h-full  flex flex-col justify-center   relative ">
+                  
 
                   <Card
-                    className={`h-[50vh] w-full  ${colors[index]}  border-none`}
+                    className={`h-auto w-full  ${colors[index]}  border-none`}
                   >
                     <div>
                       <h1
-                        className="text-xl font-semibold bg-white w-[18.33%] px-3 py-2 "
-
-                        // style={{ mixBlendMode: "difference" }} 
+                        className={`text-xl font-semibold bg-white w-[18.33%] px-3 py-2`}
+                        style={{color:textColor[index]}}
                       >
                         {slide.label}
                       </h1>
                     </div>
-                    <CardContent className="grid grid-cols-3 gap-2 px-9 py-4">
-                      <div className="col-span-2 pt-2 md:pt-7">
-                        <div className="text-4xl font-semibold">
-                          <h2 className="text-4xl text-white font-semibold p">
+                    <CardContent className="grid grid-cols-3 gap-2 px-14 py-12 ">
+                      <div className="col-span-2 pt-2 md:pt-7  py-6">
+                        <div className="text-4xl font-medium">
+                          <h2 className="text-3xl text-white font-semibold font-inter">
                             {slide.title1 || `Slide ${index + 1}`}
                           </h2>
                         </div>
-                        <p className="text-white text-[18px] ">
+                        <p className="text-white text-[18px] font-inter my-4 ">
                           {slide.description1}
                         </p>
                         <div className="my-4">
                           <a href={`${slide.readmore1}`} target="_blank">
-                            <Button className="bg-transparent border border-white text-white ">
+                            <Button className="bg-transparent border border-white text-white font-inter hover:bg-[#f4e4c9] hover:text-black hover:border-none ">
                               Read more
                             </Button>
                           </a>
@@ -104,7 +93,7 @@ export default function CarouselComponent() {
                       </div>
 
                       {/* media for context */}
-                      <div className="col-span-1">
+                      <div className="col-span-1 ">
                         {slide.slider_image1 ? (
                           <img
                             src={`${Imgpath}/${slide.slider_image1}`}

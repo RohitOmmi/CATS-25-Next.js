@@ -16,11 +16,11 @@ export default function ServiceCard({ service }) {
   const Imgpath="https://guprojects.gitam.edu/catscms2/public/services/"
   return (
     <div
-      className="p-[12px] m-[18px] flex flex-col items-center border text-center bg-[#f4e4c9]  border-[#a58255]"
+      className="py-[18px] px-[12px] m-[10px] flex flex-col items-center border text-center bg-[#f4e4c9]  border-[#a58255] cursor-pointer"
       onClick={() => router.push(route)}
     >
-      {service.main_category_name?(<img src={`${Imgpath}${service.main_category_image || service.cat_image}`} className="w-[113px] h-[90px]"/>):"no media"}
-      <h2 className="text-[16px] font-semibold">{cardTitle}</h2>
+      {service.main_category_name?(<img src={`${Imgpath}${service.main_category_image || service.cat_image}`} className="w-[90px] h-[80px]"/>):"no media"}
+      <h2 className="text-[15px] font-medium  mt-3 text-[#1f2225] font-inter">{cardTitle}</h2>
       {/* <p className="text-gray-600">{service.slug}</p> */}
     </div>
   );

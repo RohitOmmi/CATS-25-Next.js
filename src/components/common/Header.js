@@ -29,6 +29,7 @@ const logins = [
   { name: "Employee Login", path: "https://login.gitam.edu/Login.aspx" },
   { name: "Parent Login", path: "https://gparent.gitam.edu/login" },
   { name: "Student Login", path: "https://gparent.gitam.edu/login" },
+  // {name:"Training",path:"/training"},
 ];
 
 export default function Header() {
@@ -41,14 +42,14 @@ export default function Header() {
         <Image
           src="https://guprojects.gitam.edu/catscms2/assets/img/logo.png"
           alt="CATS Logo"
-          width={150} // Adjust size as needed
+          width={145} // Adjust size as needed
           height={50}
-          className="object-contain"
+          className="object-contain cursor-pointer transition"
         />
       </Link>
       {/* Navigation Menu */}
       <NavigationMenu>
-        <NavigationMenuList className="flex justify-end gap-6">
+        <NavigationMenuList className="flex justify-end gap-3">
           {navItems.map(({ name, path }) => {
             const isActive = pathname === path;
             return (
@@ -58,7 +59,7 @@ export default function Header() {
                     className={`${navigationMenuTriggerStyle()} text-base  font-inter ${
                       isActive
                         ? "text-[#007367] "
-                        : "text-[#212529]"
+                        : "text-[#454b52]"
                     }`}
                   >
                     {name}
@@ -77,7 +78,7 @@ export default function Header() {
                 {logins.map((component) => (
                   <li
                     key={component.name}
-                    className="hover:bg-gray-100 rounded-md"
+                    className="hover:bg-gray-100 rounded-md text-[#454b52]"
                   >
                     <Link
                       href={component.path}

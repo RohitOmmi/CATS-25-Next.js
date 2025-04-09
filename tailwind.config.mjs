@@ -10,6 +10,10 @@ export default {
     extend: {
       fontFamily: {
         inter: ["Inter", "sans-serif"], // Use as font-custom
+        formaDJr: ["formadjr", "sans-serif"],
+        formaDJrMedium: ["formadjr-meduim", "sans-serif"],
+        formaDJrBold: ["formadjr-bold", "sans-serif"],
+
       },
       colors: {
         primary: {

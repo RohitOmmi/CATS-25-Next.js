@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Slash } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Footer from "@/components/common/Footer";
+
 
 export default async function ServiceInnerDetailPage({ params }) {
   // console.log("Inner Paramas", params);
@@ -38,6 +40,8 @@ export default async function ServiceInnerDetailPage({ params }) {
 
   if (!service) return <div>Service not found</div>;
   const firstTab = service.l3menu_data[0]?.sub_cat_name || "";
+
+  console.log(service);
   return (
     <>
       <section>
@@ -47,7 +51,7 @@ export default async function ServiceInnerDetailPage({ params }) {
       <section>
         <div className="w-full bg-[#f4e4c9] py-4">
           <div className="max-w-screen-xl mx-auto">
-            <h1 className="text-3xl font-bold mb-4 text-[#a58255]">
+            <h1 className="text-2xl font-inter font-medium mb-4 text-[#a58255]">
               {titleSlug2}
             </h1>
             {/* Bread crumb component */}
@@ -55,13 +59,23 @@ export default async function ServiceInnerDetailPage({ params }) {
               <Breadcrumb>
                 <BreadcrumbList>
                   <BreadcrumbItem>
-                    <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                    <BreadcrumbLink
+                      href="/"
+                      className="text-[#a58255] font-inter"
+                    >
+                      Home
+                    </BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbSeparator>
                     <Slash />
                   </BreadcrumbSeparator>
                   <BreadcrumbItem>
-                    <BreadcrumbLink href="/services">Services</BreadcrumbLink>
+                    <BreadcrumbLink
+                      href="/services"
+                      className="text-[#a58255] font-inter"
+                    >
+                      Services
+                    </BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbSeparator>
                     <Slash />
@@ -69,7 +83,7 @@ export default async function ServiceInnerDetailPage({ params }) {
                   <BreadcrumbItem>
                     <BreadcrumbLink
                       href={`/services/${slug}`}
-                      className="capitalize"
+                      className="capitalize text-[#a58255] font-inter"
                     >
                       {titleSlug}
                     </BreadcrumbLink>
@@ -80,7 +94,7 @@ export default async function ServiceInnerDetailPage({ params }) {
                   <BreadcrumbItem>
                     <BreadcrumbLink
                       href={`/services/${slug}/${innerSlug}`}
-                      className="capitalize"
+                      className="capitalize text-[#007367] font-inter"
                     >
                       {titleSlug2}
                     </BreadcrumbLink>
@@ -97,48 +111,50 @@ export default async function ServiceInnerDetailPage({ params }) {
           {/* <h1 className="text-3xl font-bold mb-4">Our Services Inner slug</h1> */}
 
           <div>
-          
             <div>
               <Tabs defaultValue={firstTab} className="flex  gap-2">
-                <TabsList className="shrink-0" >
+                <TabsList className="shrink-0">
                   {service.l3menu_data.map((innerData, index) => (
                     <TabsTrigger
                       key={index}
                       value={innerData.sub_cat_name}
-                      className=" text-center p-2 border border-gray-300 "
+                      className="text-center p-2 border border-gray-300 "
                     >
-                       <div className="flex flex-row  items-center justify-between">
-                       <h1 className="text-xl font-semibold">
-                        {innerData.sub_cat_name}
-                      </h1>
-                      <ChevronRight className="w-3 h-3 text-black" />
-                       </div>
-                      
+                      <div className="flex flex-row  items-center justify-between py-1">
+                        <h1 className="text-[18px] font-inter">
+                          {innerData.sub_cat_name}
+                        </h1>
+                        <ChevronRight className="w-3 h-3 text-black group-data-[state=active]:text-white transition-colors duration-300" />
+                      </div>
                     </TabsTrigger>
                   ))}
                 </TabsList>
-                <div className=" h-[calc(100vh-300px)] overflow-y-auto">
-                {service.services_data.map((serviceData, index) => (
-                  
-                  <TabsContent key={index} value={serviceData.sub_cat_name} >
-                    <div>
-                      <h2 className="text-xl font-semibold text-[#007367]">
-                        {serviceData.sub_cat_name}
-                      </h2>
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: serviceData.description,
-                        }}
-                      />
-                    </div>
-                  </TabsContent>
-                  
-                ))}
+                <div className="scroll-container h-[calc(100vh-300px)] overflow-y-auto overflow-x-hidden p-2">
+                  {service.services_data.map((serviceData, index) => (
+                    <TabsContent key={index} value={serviceData.sub_cat_name}>
+                      <div>
+                        <h2 className="text-xl  font-medium text-[#007367] font-inter">
+                          {serviceData.sub_cat_name}
+                        </h2>
+                        <div>
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: serviceData.description,
+                            }}
+                            className="description-styles font-inter"
+                          />
+                        </div>
+                      </div>
+                    </TabsContent>
+                  ))}
                 </div>
               </Tabs>
             </div>
           </div>
         </div>
+      </section>
+      <section>
+        <Footer />
       </section>
     </>
   );

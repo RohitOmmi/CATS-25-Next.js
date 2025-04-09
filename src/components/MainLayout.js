@@ -6,8 +6,8 @@ function MainLayout({ children }) {
     <div className="w-full h-screen">
       <div className="max-w-screen-xl mx-auto  h-full flex flex-col ">
         <Header />
-        <div className="flex-1">
-          
+        <div className="overflow-auto md:overflow-hidden h-screen flex-grow">
+         
           {children}</div>
         {/* ✅ This ensures the content fills remaining height */}
       </div>

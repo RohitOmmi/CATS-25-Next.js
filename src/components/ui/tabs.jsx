@@ -11,7 +11,7 @@ const TabsList = React.forwardRef(({ className, ...props }, ref) => (
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "flex flex-col w-1/4 gap-4 items-center justify-start my-5",
+      "flex flex-col md:w-1/4 gap-4 items-center justify-start my-5",
       className
     )}
     {...props} />
@@ -22,7 +22,7 @@ const TabsTrigger = React.forwardRef(({ className, ...props }, ref) => (
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "w-full   py-1 px-4 border border-lg border-[#969696] text-sm   transition-all",
+      "w-[85%]   py-1 px-4 border border-lg border-[#969696] text-sm   transition-all",
       "focus:outline-none ",
       "data-[state=active]:bg-[#a58255] data-[state=active]:text-white"
     )}

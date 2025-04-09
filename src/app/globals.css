@@ -5,6 +5,7 @@
 html, body {
      /* overflow: hidden; */
      /* font-family:"font-inter"; */
+     color: #212529;
 }
 @font-face {
   font-family: "Inter";
@@ -14,16 +15,39 @@ html, body {
 }
 
 @font-face {
-  font-family: "Inter";
+  font-family: "Inter-bold";
   src: url("/fonts/Inter-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Inter";
+  font-family: "Inter-medium";
   src: url("/fonts/Inter-Medium.ttf") format("truetype");
   font-weight: 500;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "formadjr-bold";
+  src: url("/fonts/FormaDJRDisplay-Bold.otf") format("truetype");
+ 
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "formadjr-meduim";
+  src: url("/fonts/FormaDJRDisplay-Medium.otf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "formadjr";
+  src: url("/fonts/FormaDJRDisplay-Regular.otf") format("truetype");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -43,4 +67,57 @@ html, body {
   flex-wrap: nowrap;
   justify-content: space-around;
   min-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .tab-container {
+    flex-direction: column;
+  }
+}
+.description-styles ul {
+  /* flex-wrap: wrap; */
+  list-style-type: disc;
+  padding-left:30px;
+  margin-top: 20px ;
+  margin-bottom: 20px ;
+}
+.description-styles li {
+  /* flex-wrap: wrap; */
+
+  margin-bottom: 10px ;
+}
+
+ p {
+ font-size: 15px;
+ color: #2e2d2d;
+ text-align: justify;
+}
+
+.scroll-container {
+  scrollbar-width: 5px; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+/* Hide scrollbar for WebKit browsers 
+.scroll-container::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}*/
+
+/* When scrolling starts, show thin scrollbar
+.scroll-container.scrolling {
+  scrollbar-width: thin;
+} */
+
+/* Webkit-specific scrollbar styling when scrolling
+.scroll-container.scrolling::-webkit-scrollbar {
+  width: 6px;
+}*/
+
+/* .scroll-container.scrolling::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+} */
+.news-inner p{ 
+  margin-bottom: 15px;
 }

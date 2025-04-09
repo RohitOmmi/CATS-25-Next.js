@@ -38,7 +38,7 @@ export default async function NewsPage() {
                   <Slash />
                 </BreadcrumbSeparator>
                 <BreadcrumbItem>
-                  <BreadcrumbLink href="/news" className="font-inter">News</BreadcrumbLink>
+                  <BreadcrumbLink href="/news" className="font-inter text-[#007367]">News</BreadcrumbLink>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
